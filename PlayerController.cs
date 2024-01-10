@@ -24,6 +24,9 @@ public class PlayerController : MonoBehaviour
         float forwardInput = Input.GetAxis("Vertical");
         playerRigidBody.AddForce(focalPoint.transform.forward * forwardInput * speed);
         powerUpIndicator.transform.position = transform.position + new Vector3(0,-0.5f,0);
+        if(transform.position.y < -10){
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
